@@ -16,6 +16,7 @@ struct PositioningScreen : View{
     var body  : some View {
         ZStack(alignment : .bottom){
             PresentPositioningARKitView()
+                .offset(y:+10)
             
             Text("Tap on the smart devices that you have added, update the device positions whenever you move your smart devices")
                 .fontWeight(.bold)
@@ -28,6 +29,7 @@ struct PositioningScreen : View{
         }.navigationBarTitle("")
         .navigationBarHidden(true)
         .background(Color.init("appdefaultbgcolor"))
+            .edgesIgnoringSafeArea(.top)
     }
 
  struct PresentPositioningARKitView : UIViewControllerRepresentable {

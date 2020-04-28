@@ -22,7 +22,8 @@ struct Home: View {
             Text("Home")
                            .fontWeight(.black)
                            .font(.largeTitle)
-                .padding([.top,.top,.leading])
+                .padding(.leading)
+                .padding(.top,40)
             Spacer()
         }
         
@@ -65,7 +66,7 @@ struct Home: View {
        }.background(Color.init("appdefaultbgcolor"))
     .navigationBarTitle("")
     .navigationBarHidden(true)
-       
+        .edgesIgnoringSafeArea(.all)
     }
         
     }
@@ -108,4 +109,4 @@ struct UILabel:View{
         
 }
 }
-//Done19
+//Done23
