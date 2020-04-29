@@ -11,7 +11,9 @@ import SwiftUI
 
 struct Home: View {
    
+    @ObservedObject var userGestureInteraction = GlobalUserGestureInteraction
    @State var addNewDeviceScreen = false
+    
     
     var body: some View {
    NavigationView {
@@ -50,6 +52,16 @@ struct Home: View {
                     UILabel(text : "See All Devices",buttonFGColor: .white, buttonBGColor: .purple)
                                          
                            }
+                
+                
+                Button(action:{
+                   // self.userGestureInteraction.setNodePointedByUser()
+                    self.userGestureInteraction.setNodePointedByUser(heading : GloabalCurrentDeviceHeading){}
+                   // checkPointing = true
+                }){
+                    UILabel(text :  "\(self.userGestureInteraction.currentPointedNode?.nodeName ?? "Start Pointing")",buttonFGColor: .white, buttonBGColor: .orange)
+            }
+               
                 
                 Spacer()
             }
@@ -102,11 +114,8 @@ struct UILabel:View{
     }.frame(width:self.width,height:self.height)
         .modifier(bgDepthEffect(color:self.buttonBGColor))
         .foregroundColor(self.buttonFGColor)
-        //.padding()
-        //.background(self.buttonBGColor)
-        //.cornerRadius(self.radius)
-        //.padding(.horizontal)
+       
         
 }
 }
-//Done23
+//Done39

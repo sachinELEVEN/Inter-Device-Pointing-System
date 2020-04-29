@@ -16,8 +16,8 @@ class DMNodeCoordinates : ObservableObject {
     
     init(position : SCNVector3){
         self.Vx = position.x
-               self.Vy = position.y
-               self.Vz = position.z
+               self.Vy = -(position.z)//since ARKit Mapping System takes -ve Z Axes IN front of camera
+               self.Vz = position.y//Since in scene kit height is in Y axes
     }
     
    //Custom 3D Space System - coordinates
@@ -42,18 +42,34 @@ class DMNode  {
     
     var id = UUID.init().uuidString
     var nodeName : String
+    var isNodeUser = false
     var position : DMNodeCoordinates
     
 }
 
 class DMSystemNodes : ObservableObject{
   @Published  var nodes = [DMNode]()
+    @Published var userNode : DMNode? = nil
     var id = UUID.init().uuidString
     
     func addNode(newNode : DMNode){
-        self.nodes.append(newNode)
+        //First node will be userNode and the rest will be other nodes(systemNodes)
+        
+        if self.userNode == nil {
+            //Save device's heading
+            //Heading when initial map is layed out
+            UserDefaults.standard.set(GloabalCurrentDeviceHeading, forKey: "initialheading")
+            self.userNode = newNode
+            
+        }else{
+            self.nodes.append(newNode)
+        }
+        
+       
     }
   
+    
+    
     
     /// Handles new nodes created completely
     /// - Parameter position: Position where the node is placed received from ARKit
@@ -70,4 +86,10 @@ class DMSystemNodes : ObservableObject{
     }
     
 }
-//Done12
+//Done39
+
+/*
+  -0.27676976i 0.058604397
+  -0.14725803i 0.2225008j
+ 0.09499237i 0.07326437j
+*/

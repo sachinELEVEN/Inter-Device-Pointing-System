@@ -23,7 +23,7 @@ struct PositioningScreen : View{
                 .padding()
          .background(CustomBlur(style: .systemUltraThinMaterial))
             .cornerRadius(10, antialiased: true)
-                .padding(.bottom,5)
+                .padding(.horizontal)
             //CustomBlur
             
         }.navigationBarTitle("")
@@ -47,4 +47,4 @@ func updateUIViewController(_ uiViewController: PositioningControllerARKit, cont
 
 
 }
-//Done7
+//Done13

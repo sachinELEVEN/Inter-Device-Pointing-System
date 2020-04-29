@@ -27,17 +27,48 @@ struct AskForUserLocation : UIViewControllerRepresentable {
    class LocationAccess : UIViewController,CLLocationManagerDelegate {
 
     var locationManager = CLLocationManager()
+    var rePoint = true
 
     override func viewDidLoad() {
           super.viewDidLoad()
         //Asks for user's location services
+        locationManager.delegate = self
+        
           locationManager.requestWhenInUseAuthorization()
-         
+        //Start the compass
+         locationManager.startUpdatingHeading()
        
        }
 
+   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+           // print(newHeading.magneticHeading)
+         //  print("Heading \(locationManager.heading?.description ?? "No Heading")")
+    
+    //Update pointing device
+    //update global variable keeping track of heading // Bad practice
+      
+    let heading =  Float(self.locationManager.heading?.magneticHeading.description ?? "0" )!
+    
+  /*  if (abs(heading-GloabalCurrentDeviceHeading)<10){
+      //  print("not enough rotation")
+        return
+    }*/
+    
+    GloabalCurrentDeviceHeading = heading
+   /* if self.rePoint {
+        
+        self.rePoint = false
+        
+    GlobalUserGestureInteraction.setNodePointedByUser(heading : heading){
+        //Now again pointing can be done
+        self.rePoint = true
+    }
+    }*/
    
+    
+        }
 
+   
 
     }
 }
@@ -67,9 +98,7 @@ override func viewDidLoad() {
          }
 
     
-    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-           print(newHeading.magneticHeading)
-       }
+  
    
     func getLocation(){
         if(CLLocationManager.locationServicesEnabled()) {
@@ -130,4 +159,4 @@ func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:
 
 }
 
-//Done5
+//Done12

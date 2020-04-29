@@ -23,7 +23,7 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
                                     sceneView.translatesAutoresizingMaskIntoConstraints=false
                                   
                                  sceneView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant:0).isActive = true
-                                sceneView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: +10).isActive = true
+                                sceneView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: +0).isActive = true
                    sceneView.widthAnchor.constraint(equalToConstant: view.bounds.width/1).isActive = true
                    sceneView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/1).isActive = true
        // sceneView.clipsToBounds = true
@@ -51,6 +51,9 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
         
         // Run the view's session
         sceneView.session.run(configuration)
+        
+       
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

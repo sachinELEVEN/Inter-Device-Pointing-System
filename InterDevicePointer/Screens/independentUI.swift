@@ -36,3 +36,15 @@ struct bgDepthEffect: ViewModifier {
             .padding()
     }
 }
+
+
+func UIScreenHeader(title : String)->some View{
+    return HStack{
+        Text(title)
+            .fontWeight(.heavy)
+            .font(.largeTitle)
+        
+        Spacer()
+    }.padding()
+    
+}

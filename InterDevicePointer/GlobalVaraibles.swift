@@ -10,6 +10,9 @@ import Foundation
 import SwiftUI
 
 var GlobalSystemNodes = DMSystemNodes()
+var GlobalUserGestureInteraction = UserGestureInteraction()
 let fullWidth  = UIScreen.main.bounds.width
 let fullHeight  = UIScreen.main.bounds.height
-//Done1
+var GloabalCurrentDeviceHeading : Float = 0
+var checkPointing = false
+//Done3

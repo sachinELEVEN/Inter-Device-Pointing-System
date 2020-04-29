@@ -69,7 +69,21 @@ struct SystemNodeList : View {
                .cornerRadius(10, antialiased: true)
                    .padding(.bottom,5)
             
+            
+            Text("User")
+                .fontWeight(.bold)
+                
+            self.cell(self.systemNodes.userNode!).padding(.vertical)
+            
+                
+            
+             HStack      {
+            UIScreenHeader(title : "Devices")
+                VStack(alignment : .leading){
+                    Divider()
+                }
              
+            }
               ForEach(self.systemNodes.nodes,id:\.id){node in
                  
                 self.cell(node)
@@ -85,18 +99,18 @@ struct SystemNodeList : View {
     
     
     func cell(_ node : DMNode)->some View {
-           return VStack{
+        return VStack(alignment : .leading){
             
             Text("Device Name \(node.nodeName)")
             Text("Position Vector \(node.position.Vx)i \(node.position.Vy)j \(node.position.Vz)k")
             
                
         }.padding()
-            .background(Color.primary.colorInvert())
-        .cornerRadius(10, antialiased: true)
+          .background(CustomBlur(style: .systemUltraThinMaterial))
+            .cornerRadius(10, antialiased: true)
             .padding(.vertical,5)
        }
     
 }
 
-//Done25
+//Done38
