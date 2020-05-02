@@ -14,5 +14,5 @@ var GlobalUserGestureInteraction = UserGestureInteraction()
 let fullWidth  = UIScreen.main.bounds.width
 let fullHeight  = UIScreen.main.bounds.height
 var GloabalCurrentDeviceHeading : Float = 0
-var checkPointing = false
-//Done3
+var nodesAreAdded = false
+//Done8

@@ -56,10 +56,11 @@ struct Home: View {
                 
                 Button(action:{
                    // self.userGestureInteraction.setNodePointedByUser()
-                    self.userGestureInteraction.setNodePointedByUser(heading : GloabalCurrentDeviceHeading){}
-                   // checkPointing = true
+                   // self.userGestureInteraction.setNodePointedByUser(heading : GloabalCurrentDeviceHeading){}
+                   
                 }){
                     UILabel(text :  "\(self.userGestureInteraction.currentPointedNode?.nodeName ?? "Start Pointing")",buttonFGColor: .white, buttonBGColor: .orange)
+                     .font(.system(size: 40, weight: Font.Weight.heavy, design: Font.Design.default))
             }
                
                 
@@ -118,4 +119,4 @@ struct UILabel:View{
         
 }
 }
-//Done39
+//Done40

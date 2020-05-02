@@ -17,7 +17,11 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nodesAreAdded = false
+        
         //Add scene to view
+        
+        
         
         view.addSubview(sceneView)
                                     sceneView.translatesAutoresizingMaskIntoConstraints=false
@@ -41,6 +45,8 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,9 +64,10 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+       
         // Pause the view's session
         sceneView.session.pause()
+         nodesAreAdded = true
     }
     //MY STUFF
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -82,7 +89,7 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
          print(hitPosition.z)
         
          //Adding the new Node to system Node
-       let nodeName = "Device\(GlobalSystemNodes.nodes.count)"
+       let nodeName = "\(GlobalSystemNodes.nodes.count)"
         DMSystemNodes.handleNewNodes(nodeName: nodeName, position: hitPosition)
         
         
@@ -124,3 +131,4 @@ class PositioningControllerARKit: UIViewController, ARSCNViewDelegate {
         
     }
 }
+//Done11

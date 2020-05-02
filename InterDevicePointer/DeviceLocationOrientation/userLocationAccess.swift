@@ -49,13 +49,13 @@ struct AskForUserLocation : UIViewControllerRepresentable {
       
     let heading =  Float(self.locationManager.heading?.magneticHeading.description ?? "0" )!
     
-  /*  if (abs(heading-GloabalCurrentDeviceHeading)<10){
+    if (abs(heading-GloabalCurrentDeviceHeading)<1){
       //  print("not enough rotation")
         return
-    }*/
+    }
     
     GloabalCurrentDeviceHeading = heading
-   /* if self.rePoint {
+    if self.rePoint && nodesAreAdded {
         
         self.rePoint = false
         
@@ -63,7 +63,7 @@ struct AskForUserLocation : UIViewControllerRepresentable {
         //Now again pointing can be done
         self.rePoint = true
     }
-    }*/
+    }
    
     
         }
@@ -159,4 +159,4 @@ func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:
 
 }
 
-//Done12
+//Done13
