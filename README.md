@@ -2,8 +2,8 @@
 
 #APPLICATION 
 
-Inter Device Pointing System is able to find which device(wifi) your iphone is pointing to.
-This is implemented through an iOS App
+Inter Device Pointing System is able to find which device your iphone is pointing to.
+This is implemented through an iOS App.
 Note - Currenlty no actual wifi devices are handled
 The idea of this project is that you can simply point your iphone/ipad to any device and that device + your device will know where you are pointing. 
 To achieve the desired result it requires - Your Device orientation(available through compass) + position of your device
